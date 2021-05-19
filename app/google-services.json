@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1055530752122",
+    "firebase_url": "https://pandyapk-31408.firebaseio.com",
+    "project_id": "pandyapk-31408",
+    "storage_bucket": "pandyapk-31408.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055530752122:android:6c2e3d734ed663a36883c3",
+        "android_client_info": {
+          "package_name": "com.dai.pandyapk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055530752122-hl2nnhfaj8fdqlfi49l2v7ibd641hl83.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dai.pandyapk",
+            "certificate_hash": "29a73464397df10ba771a8ed64c6bf8609ca27d7"
+          }
+        },
+        {
+          "client_id": "1055530752122-phrej4ac30a9f8nm35rv8hk07nlav2gv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV52vWGTGCSDacvaOxFZs5eBASxMxgBC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055530752122-phrej4ac30a9f8nm35rv8hk07nlav2gv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

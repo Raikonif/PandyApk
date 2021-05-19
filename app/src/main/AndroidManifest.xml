@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dai.pandyapk">
+
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <!-- uso de camara -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="notes.CameraActivity"></activity>
+        <activity android:name="notes.ViewCurrentNoteActivity" />
+        <activity android:name="notes.NewNoteActivity" />
+        <activity android:name=".ProfileViewActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".AtlasActivity" />
+        <activity android:name=".loginuser.ForgotPasswordActivity" />
+        <activity android:name=".loginuser.SignUpActivity" />
+        <activity android:name=".ReaderActivity" />
+        <activity android:name="notes.NotesActivity" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".loginuser.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".loginuser.MainEmptyActivity"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
