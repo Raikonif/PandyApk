@@ -41,9 +41,8 @@ class NewNoteActivity : AppCompatActivity() {
         val notename = UUID.randomUUID().toString()
         val title = binding.etTitle.toString()
         val description = binding.etDescription.toString()
-        val note = Note(filename,title,description,"",false)
+        val note = Note(filename,title,description,"","",Date())
         var batch = userRefDB.batch()
-        val referenceNote = userRefDB.collection("Notes").document("$uid")
-        batch.set(referenceNote, note)
+        val referenceNote = userRefDB.collection("UserNotes").document("$uid").collection("note").document(note.toString())
     }
 }
