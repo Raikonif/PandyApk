@@ -22,7 +22,8 @@ class NewNoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 //buttons
-        
+
+
         binding.btnSave.setOnClickListener{
             saveNote()
             val goToActivityNotes = Intent(this, NotesActivity::class.java)
