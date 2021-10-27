@@ -1,27 +1,31 @@
-package com.dai.pandyapk
+package com.dai.pandyapk.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.dai.pandyapk.R
 import com.dai.pandyapk.databinding.ActivityMainBinding
-import com.dai.pandyapk.loginuser.LoginActivity
+import com.dai.pandyapk.view.loginuser.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import notes.NotesActivity
+import com.dai.pandyapk.view.notes.NotesActivity
+import com.dai.pandyapk.viewmodel.PandyViewModel
+import androidx.activity.viewModels
 
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 //    private lateinit var binding: ActivityMainBinding
     private val mAuth: FirebaseAuth by lazy { Firebase.auth }
+    private val pandyViewModel: PandyViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //            binding = ActivityMainBinding.inflate(layoutInflater)
-            setContentView(binding.root)
+
 
         binding.btnGoActivityNotes.setOnClickListener{
             val goActivityNotes = Intent(this, NotesActivity::class.java)
@@ -36,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             val goActivityAtlas = Intent(this, AtlasActivity::class.java)
             startActivity(goActivityAtlas)
         }
+        setContentView(binding.root)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 

@@ -1,8 +1,7 @@
-package notes
+package com.dai.pandyapk.view.notes
 
-import Models.Note
+import com.dai.pandyapk.model.Note
 import android.content.Intent
-import android.graphics.Camera
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dai.pandyapk.databinding.ActivityNewNoteBinding

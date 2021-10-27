@@ -1,11 +1,11 @@
-package com.dai.pandyapk.loginuser
+package com.dai.pandyapk.view.loginuser
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.dai.pandyapk.databinding.ActivityForgotPasswordBinding
-import com.dai.pandyapk.isValidateEmail
+import com.dai.pandyapk.view.isValidateEmail
 import com.google.firebase.auth.FirebaseAuth
 
 

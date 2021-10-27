@@ -1,7 +1,8 @@
-package com.dai.pandyapk
+package com.dai.pandyapk.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dai.pandyapk.R
 
 class ProfileViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

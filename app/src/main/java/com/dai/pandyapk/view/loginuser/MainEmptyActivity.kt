@@ -1,9 +1,9 @@
-package com.dai.pandyapk.loginuser
+package com.dai.pandyapk.view.loginuser
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.dai.pandyapk.MainActivity
+import com.dai.pandyapk.view.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

@@ -1,4 +1,4 @@
-package Models
+package com.dai.pandyapk.model
 
 import java.util.*
 

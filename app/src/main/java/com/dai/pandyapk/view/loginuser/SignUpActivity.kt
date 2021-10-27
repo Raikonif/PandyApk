@@ -1,6 +1,6 @@
-package com.dai.pandyapk.loginuser
+package com.dai.pandyapk.view.loginuser
 
-import Models.User
+import com.dai.pandyapk.model.User
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -17,13 +17,12 @@ import com.google.firebase.ktx.Firebase
 import android.Manifest
 import android.app.Activity
 import android.net.Uri
-import android.opengl.Visibility
 import android.view.View
-import androidx.core.content.ContextCompat
-import com.google.firebase.storage.FirebaseStorage
+import com.dai.pandyapk.view.isValidateConfirmPassword
+import com.dai.pandyapk.view.isValidateEmail
+import com.dai.pandyapk.view.isValidatePassword
+import com.dai.pandyapk.view.toast
 import com.google.firebase.storage.ktx.storage
-import notes.CameraActivity
-import java.util.*
 
 class SignUpActivity : AppCompatActivity() {
 

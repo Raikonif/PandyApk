@@ -1,9 +1,8 @@
-package notes
+package com.dai.pandyapk.view.notes
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.dai.pandyapk.databinding.ActivityMainBinding
 import com.dai.pandyapk.databinding.ActivityNotesBinding
 
 class NotesActivity : AppCompatActivity() {

@@ -1,6 +1,5 @@
-package notes
+package com.dai.pandyapk.view.notes
 
-import Models.Note
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -24,11 +23,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dai.pandyapk.databinding.ActivityCameraBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ktx.storage
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min

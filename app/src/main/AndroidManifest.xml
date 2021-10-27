@@ -16,23 +16,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="notes.CameraActivity"></activity>
-        <activity android:name="notes.ViewCurrentNoteActivity" />
-        <activity android:name="notes.NewNoteActivity" />
-        <activity android:name=".ProfileViewActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".AtlasActivity" />
-        <activity android:name=".loginuser.ForgotPasswordActivity" />
-        <activity android:name=".loginuser.SignUpActivity" />
-        <activity android:name=".ReaderActivity" />
-        <activity android:name="notes.NotesActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.dai.pandyapk.view.notes.CameraActivity"></activity>
+        <activity android:name="com.dai.pandyapk.view.notes.ViewCurrentNoteActivity" />
+        <activity android:name="com.dai.pandyapk.view.notes.NewNoteActivity" />
+        <activity android:name=".view.ProfileViewActivity" />
+        <activity android:name=".view.ProfileActivity" />
+        <activity android:name=".view.AtlasActivity" />
+        <activity android:name="com.dai.pandyapk.view.loginuser.ForgotPasswordActivity" />
+        <activity android:name="com.dai.pandyapk.view.loginuser.SignUpActivity" />
+        <activity android:name=".view.ReaderActivity" />
+        <activity android:name="com.dai.pandyapk.view.notes.NotesActivity" />
+        <activity android:name=".view.MainActivity" />
         <activity
-            android:name=".loginuser.LoginActivity"
+            android:name="com.dai.pandyapk.view.loginuser.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".loginuser.MainEmptyActivity"
+            android:name="com.dai.pandyapk.view.loginuser.MainEmptyActivity"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
