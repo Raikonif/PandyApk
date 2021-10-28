@@ -1,7 +1,10 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'com.google.gms.google-services'
-//apply plugin: 'kotlin-android-extensions'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.google.gms.google-services'
+    id 'androidx.navigation.safeargs.kotlin'
+
+}
 
 android {
 
@@ -14,13 +17,12 @@ android {
         jvmTarget = '1.8'
     }
 
-    compileSdkVersion 31
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.dai.pandyapk"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -96,9 +98,9 @@ dependencies {
 
     //UPDATE
     //ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
     //LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
     //Fragment
     implementation 'androidx.fragment:fragment-ktx:1.3.6'
     //Activity
