@@ -15,4 +15,13 @@
         android:name="com.dai.pandyapk.view.notes.NoteCreatorFragment"
         android:label="fragment_note_creator"
         tools:layout="@layout/fragment_note_creator" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dai.pandyapk.view.loginuser.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
 </navigation>
