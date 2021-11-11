@@ -94,6 +94,7 @@ class CameraActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>, grantResults:
         IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (allPermissionsGranted()) {
                 startCamera()
@@ -373,12 +374,12 @@ class CameraActivity : AppCompatActivity() {
                 .load(uri)
                 .apply(RequestOptions.circleCropTransform())
                 .into(thumbnail)
-            val goToActivityNewNote = Intent(this, NewNoteActivity::class.java)
+//            val goToActivityNewNote = Intent(this, NewNoteActivity::class.java)
             var photo = uri
             val b = Bundle()
 
-            goToActivityNewNote.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(goToActivityNewNote)
+//            goToActivityNewNote.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+//            startActivity(goToActivityNewNote)
         }
     }
 

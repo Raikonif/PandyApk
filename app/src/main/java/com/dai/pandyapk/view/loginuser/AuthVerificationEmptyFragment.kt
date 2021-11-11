@@ -14,7 +14,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
-class AuthVerificationEmptyFragment : Fragment() {
+class AuthVerificationEmptyFragment : Fragment(R.layout.fragment_auth_verification_empty) {
     private val mAuth: FirebaseAuth by lazy { Firebase.auth }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

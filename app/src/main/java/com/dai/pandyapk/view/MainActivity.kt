@@ -7,11 +7,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.dai.pandyapk.R
 import com.dai.pandyapk.databinding.ActivityMainBinding
-import com.dai.pandyapk.view.loginuser.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.dai.pandyapk.view.notes.NotesActivity
 import com.dai.pandyapk.viewmodel.PandyViewModel
 import androidx.activity.viewModels
 
@@ -48,18 +46,9 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
 
             R.id.menuProfileView -> {
-
-                val goProfileActivity = Intent(this, ProfileViewActivity::class.java)
-                startActivity(goProfileActivity)
             }
 
-            R.id.menuSignOut -> {
-
-                mAuth.signOut()
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            }
+            R.id.menuSignOut -> { mAuth.signOut() }
         }
 
         return super.onOptionsItemSelected(item)
