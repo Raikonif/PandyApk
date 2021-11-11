@@ -16,16 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.dai.pandyapk.view.notes.CameraActivity"></activity>
-        <activity android:name="com.dai.pandyapk.view.notes.ViewCurrentNoteActivity" />
-        <activity android:name="com.dai.pandyapk.view.notes.NewNoteActivity" />
-        <activity android:name=".view.ProfileViewActivity" />
-        <activity android:name=".view.ProfileActivity" />
-        <activity android:name=".view.AtlasActivity" />
-        <activity android:name="com.dai.pandyapk.view.loginuser.ForgotPasswordActivity" />
-        <activity android:name="com.dai.pandyapk.view.loginuser.SignUpActivity" />
-        <activity android:name=".view.ReaderActivity" />
-        <activity android:name="com.dai.pandyapk.view.notes.NotesActivity" />
+        <activity android:name="com.dai.pandyapk.view.notes.CameraActivity" />
+
 
         <activity android:name=".view.MainActivity"
             android:theme="@style/SplashTheme"
@@ -36,15 +28,5 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity
-            android:name="com.dai.pandyapk.view.loginuser.LoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dai.pandyapk.view.loginuser.MainEmptyActivity"
-            android:theme="@android:style/Theme.NoDisplay">
-
-        </activity>
     </application>
-
 </manifest>
