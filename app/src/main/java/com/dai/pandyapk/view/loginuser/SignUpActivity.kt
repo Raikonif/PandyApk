@@ -18,10 +18,7 @@ import android.Manifest
 import android.app.Activity
 import android.net.Uri
 import android.view.View
-import com.dai.pandyapk.view.isValidateConfirmPassword
-import com.dai.pandyapk.view.isValidateEmail
-import com.dai.pandyapk.view.isValidatePassword
-import com.dai.pandyapk.view.toast
+import com.dai.pandyapk.view.*
 import com.google.firebase.storage.ktx.storage
 
 class SignUpActivity : AppCompatActivity() {

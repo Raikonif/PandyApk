@@ -16,7 +16,7 @@ class MainEmptyActivity:AppCompatActivity() {
 
 // Permite Verificar Si El Usuario Esta Logeado, y asi determinar a que activity debe ir, ademas de finalizar el proceso para no volver al MainEmptyActivity
             if (mAuth.currentUser == null){
-                val goToActivityLogin = Intent(this, LoginActivity::class.java)
+                val goToActivityLogin = Intent(this, LoginFragment::class.java)
                 goToActivityLogin.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(goToActivityLogin)
             }

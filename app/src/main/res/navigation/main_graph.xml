@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/authVerificationEmptyFragment">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.dai.pandyapk.view.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/noteCreatorFragment"
         android:name="com.dai.pandyapk.view.notes.NoteCreatorFragment"
@@ -21,7 +16,28 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.dai.pandyapk.view.principalmenu.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_noteCreatorFragment"
+            app:destination="@id/noteCreatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authVerificationEmptyFragment"
+        android:name="com.dai.pandyapk.view.loginuser.AuthVerificationEmptyFragment"
+        android:label="fragment_auth_verification_empty"
+        tools:layout="@layout/fragment_auth_verification_empty" >
+        <action
+            android:id="@+id/action_authVerificationEmptyFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_authVerificationEmptyFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
     </fragment>
 </navigation>

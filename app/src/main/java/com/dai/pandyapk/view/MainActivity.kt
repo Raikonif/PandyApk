@@ -24,22 +24,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Thread.sleep(2000)
 //            binding = ActivityMainBinding.inflate(layoutInflater)
 
-
-        binding.btnGoActivityNotes.setOnClickListener{
-            val goActivityNotes = Intent(this, NotesActivity::class.java)
-            startActivity(goActivityNotes)
-        }
-
-        binding.btnGoActivityReader.setOnClickListener{
-            val goActivityReader = Intent(this, ReaderActivity::class.java)
-            startActivity(goActivityReader)
-        }
-        binding.btnGoActivityAtlas.setOnClickListener {
-            val goActivityAtlas = Intent(this, AtlasActivity::class.java)
-            startActivity(goActivityAtlas)
-        }
+//
+//        binding.btnGoActivityNotes.setOnClickListener{
+//            val goActivityNotes = Intent(this, NotesActivity::class.java)
+//            startActivity(goActivityNotes)
+//        }
+//
+//        binding.btnGoActivityReader.setOnClickListener{
+//            val goActivityReader = Intent(this, ReaderActivity::class.java)
+//            startActivity(goActivityReader)
+//        }
+//        binding.btnGoActivityAtlas.setOnClickListener {
+//            val goActivityAtlas = Intent(this, AtlasActivity::class.java)
+//            startActivity(goActivityAtlas)
+//        }
         setContentView(binding.root)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -64,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
         menuInflater.inflate(R.menu.nav_menu, menu)
         return super.onCreateOptionsMenu(menu)

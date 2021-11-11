@@ -26,7 +26,16 @@
         <activity android:name="com.dai.pandyapk.view.loginuser.SignUpActivity" />
         <activity android:name=".view.ReaderActivity" />
         <activity android:name="com.dai.pandyapk.view.notes.NotesActivity" />
-        <activity android:name=".view.MainActivity" />
+
+        <activity android:name=".view.MainActivity"
+            android:theme="@style/SplashTheme"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name="com.dai.pandyapk.view.loginuser.LoginActivity"
             android:screenOrientation="portrait"
@@ -34,11 +43,7 @@
         <activity
             android:name="com.dai.pandyapk.view.loginuser.MainEmptyActivity"
             android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

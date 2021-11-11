@@ -59,21 +59,23 @@ dependencies {
     //CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-
-    //firebase
+//    FIREBASE
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    //firestore
     implementation 'com.google.firebase:firebase-firestore-ktx'
-    //implementation 'com.google.firebase:firebase-firestore:22.1.2'
-//   for kotlin
+    //storage
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    //auth
     implementation 'com.google.firebase:firebase-auth-ktx'
+
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+    //analytics
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     implementation 'com.google.firebase:firebase-core:20.0.0'
     implementation 'com.google.gms:google-services:4.3.10'
-    implementation 'com.google.firebase:firebase-storage-ktx'
-//   implementation 'com.google.firebase:firebase-storage:19.2.2'
-//   analytics
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-    //new for implementation auth
-    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+
 
     //new
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -106,7 +108,7 @@ dependencies {
     //Activity
     implementation 'androidx.activity:activity-ktx:1.4.0'
     //Navigation Components
-    def nav_version = "2.3.5"
+    def nav_version = "2.4.0-beta02"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
