@@ -7,8 +7,8 @@
     <item
         android:left="55dp"
         android:right="55dp"
-        android:top="300dp"
-        android:bottom="300dp">
+        android:top="295dp"
+        android:bottom="295dp">
         <bitmap android:src="@drawable/icon_poke3"/>
     </item>
 

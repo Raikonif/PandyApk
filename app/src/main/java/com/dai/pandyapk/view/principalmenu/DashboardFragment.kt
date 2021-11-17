@@ -17,7 +17,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDashboardBinding.bind(view)
 
-        val action = DashboardFragmentDirections.actionDashboardFragmentToNoteCreatorFragment()
+        val action = DashboardFragmentDirections.actionDashboardFragmentToNotesListFragment()
         findNavController().navigate(action)
 
     }
