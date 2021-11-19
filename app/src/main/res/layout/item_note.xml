@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="?android:progressBarStyleSmall"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="@+id/img_photo"
         app:layout_constraintBottom_toBottomOf="@id/img_photo"/>
 

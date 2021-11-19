@@ -1,7 +1,6 @@
-package com.dai.pandyapk.view.notes
+package com.dai.pandyapk.ui.notes
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaScannerConnection
 import android.net.Uri

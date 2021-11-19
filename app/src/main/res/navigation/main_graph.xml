@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.dai.pandyapk.view.loginuser.LoginFragment"
+        android:name="com.dai.pandyapk.ui.loginuser.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.dai.pandyapk.view.principalmenu.DashboardFragment"
+        android:name="com.dai.pandyapk.ui.principalmenu.DashboardFragment"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/authVerificationEmptyFragment"
-        android:name="com.dai.pandyapk.view.loginuser.AuthVerificationEmptyFragment"
+        android:name="com.dai.pandyapk.ui.loginuser.AuthVerificationEmptyFragment"
         android:label="fragment_auth_verification_empty"
         tools:layout="@layout/fragment_auth_verification_empty" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/notesListFragment"
-        android:name="com.dai.pandyapk.view.notes.NotesListFragment"
+        android:name="com.dai.pandyapk.ui.notes.NotesListFragment"
         android:label="fragment_notes_list"
         tools:layout="@layout/fragment_notes_list" >
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/noteCreatorFragment"
-        android:name="com.dai.pandyapk.view.notes.NoteCreatorFragment"
+        android:name="com.dai.pandyapk.ui.notes.NoteCreatorFragment"
         android:label="fragment_note_creator"
         tools:layout="@layout/fragment_note_creator" />
 </navigation>

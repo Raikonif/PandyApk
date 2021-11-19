@@ -1,4 +1,4 @@
-package com.dai.pandyapk.view
+package com.dai.pandyapk.ui
 
 import android.app.Activity
 import android.content.Intent

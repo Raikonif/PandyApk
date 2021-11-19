@@ -1,6 +1,5 @@
-package com.dai.pandyapk.view
+package com.dai.pandyapk.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -10,15 +9,12 @@ import com.dai.pandyapk.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.dai.pandyapk.viewmodel.PandyViewModel
-import androidx.activity.viewModels
 
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 //    private lateinit var binding: ActivityMainBinding
     private val mAuth: FirebaseAuth by lazy { Firebase.auth }
-    private val pandyViewModel: PandyViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

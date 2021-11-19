@@ -17,10 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.dai.pandyapk.view.notes.CameraActivity" />
+        <activity android:name="com.dai.pandyapk.ui.notes.CameraActivity" />
 
 
-        <activity android:name=".view.MainActivity"
+        <activity android:name=".ui.MainActivity"
             android:theme="@style/SplashTheme"
             android:exported="true">
         <intent-filter>

@@ -1,10 +1,8 @@
-package com.dai.pandyapk.view.principalmenu
+package com.dai.pandyapk.ui.principalmenu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.dai.pandyapk.R
 import com.dai.pandyapk.databinding.FragmentDashboardBinding
