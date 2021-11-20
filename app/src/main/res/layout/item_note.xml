@@ -39,13 +39,15 @@
             android:layout_height="wrap_content"
             android:text="Nota Name"
             android:textColor="@color/colorAccent"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:maxLines="2" />
 
         <TextView
             android:id="@+id/tv_note_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/primary_light"
+            android:maxLines="2"
             tools:text="Description of the note, Description of the note, Description of the note" />
 
         <TextView

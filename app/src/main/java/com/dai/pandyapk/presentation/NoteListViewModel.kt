@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
 import com.dai.pandyapk.core.Resource
-import com.dai.pandyapk.domain.NoteListRepo
+import com.dai.pandyapk.domain.noteslist.NoteListRepo
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 

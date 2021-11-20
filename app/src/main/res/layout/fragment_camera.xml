@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.camera.CameraFragment"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark">
+
+    <ImageView
+        android:id="@+id/img_add_photo"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"/>
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:textColorHint="@color/primary_light"/>
+
+    <EditText
+        android:id="@+id/et_photo_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Photo Description"
+        android:textColorHint="@color/primary_light"/>
+
+    <Button
+        android:id="@+id/btn_upload_photo"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Upload Photo"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="@color/primary_light"/>
+
+
+</LinearLayout>

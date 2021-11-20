@@ -1,4 +1,4 @@
-package com.dai.pandyapk.domain
+package com.dai.pandyapk.domain.noteslist
 
 import com.dai.pandyapk.core.Resource
 import com.dai.pandyapk.data.model.Note
