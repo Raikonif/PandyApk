@@ -77,6 +77,9 @@
         <argument
             android:name="favorite"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_noteDetailFragment_to_imageNoteDetailFragment"
+            app:destination="@id/imageNoteDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/imageNoteDetailFragment"

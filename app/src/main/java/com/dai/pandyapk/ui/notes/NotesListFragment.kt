@@ -78,14 +78,8 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list),
             findNavController().navigate(action)
         }
     }
-// TODO: ARREGLAR LA FUNCION Y AGREGAR A NAVIGATION COMPONENTS
-//    override fun onNote(note: Note) {
-//        val action = NotesListFragmentDirections.actionNotesListFragmentToNoteDetailFragment(
-//
-//        )
-//        findNavController().navigate(action)
-//        Log.d("Movie", "onMovieClick: $note")
-//    }
+
+
 
     override fun onNoteClick(note: Note) {
         val action = NotesListFragmentDirections.actionNotesListFragmentToNoteDetailFragment(
@@ -97,7 +91,7 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list),
         )
         findNavController().navigate(action)
     }
-
+// TODO: AÑADIR FUNCION DE TOCAR EN LA IMAGEN PARA AGRANDAR
 //    override fun onImageNoteClick(image: String) {
 //        val action = NotesListFragmentDirections.actionNotesListFragmentToImageNoteDetailFragment()
 //        findNavController().navigate(action)

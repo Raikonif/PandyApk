@@ -3,6 +3,7 @@ package com.dai.pandyapk.ui.notes
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.dai.pandyapk.R
@@ -17,10 +18,14 @@ class NoteDetailFragment : Fragment(R.layout.fragment_note_detail) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentNoteDetailBinding.bind(view)
+        val touchImage = binding.imgPhotoDetail
 
         binding.tvTitleDetail.text = args.title
         binding.tvDescriptionDetail.text = args.description
-        Glide.with(requireContext()).load(args.imgUrl).centerCrop().into(binding.imgPhotoDetail)
+        Glide.with(requireContext()).load(args.imgUrl).centerCrop().into(touchImage)
         binding.tvDatetimeDetail.text = args.createdAt
+//        Glide.with(requireContext()).load(args.imgUrl).into(binding.imgPhotoDetail2)
+//        TODO: AÑADIR FUNCION EN TOCAR IMAGEN PARA AGRANDARLA
+
     }
 }
