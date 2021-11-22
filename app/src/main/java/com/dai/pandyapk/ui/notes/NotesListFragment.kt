@@ -1,11 +1,13 @@
 package com.dai.pandyapk.ui.notes
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.dai.pandyapk.R
 import com.dai.pandyapk.core.Resource
 import com.dai.pandyapk.databinding.FragmentNotesListBinding
@@ -23,8 +25,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class NotesListFragment :
-    Fragment(R.layout.fragment_notes_list) /*NoteListAdapter.OnClickListener*/ {
+class NotesListFragment : Fragment(R.layout.fragment_notes_list),
+    NoteListAdapter.OnNoteClickListener {
 
     private lateinit var binding: FragmentNotesListBinding
     private val viewModel by viewModels<NoteListViewModel>
@@ -41,14 +43,27 @@ class NotesListFragment :
         binding = FragmentNotesListBinding.bind(view)
 
         viewModel.fetchLatestNotes().observe(viewLifecycleOwner, Observer { result ->
-            when(result) {
+            when (result) {
                 is Resource.Loading -> {
                     binding.pbNoteList.visibility = View.VISIBLE
                 }
 
                 is Resource.Success -> {
                     binding.pbNoteList.visibility = View.GONE
-                    binding.rvNotes.adapter = NoteListAdapter(result.data)
+                    if (result.data.isEmpty()) {
+                        binding.emptyContainer.visibility = View.VISIBLE
+                        return@Observer
+                    } else {
+                        binding.emptyContainer.visibility = View.GONE
+                    }
+                    binding.rvNotes.addItemDecoration(
+                        DividerItemDecoration(
+                            context,
+                            DividerItemDecoration.VERTICAL
+                        )
+                    )
+                    binding.rvNotes.adapter = NoteListAdapter(result.data, this)
+
                 }
 
                 is Resource.Failure -> {
@@ -63,4 +78,28 @@ class NotesListFragment :
             findNavController().navigate(action)
         }
     }
+// TODO: ARREGLAR LA FUNCION Y AGREGAR A NAVIGATION COMPONENTS
+//    override fun onNote(note: Note) {
+//        val action = NotesListFragmentDirections.actionNotesListFragmentToNoteDetailFragment(
+//
+//        )
+//        findNavController().navigate(action)
+//        Log.d("Movie", "onMovieClick: $note")
+//    }
+
+    override fun onNoteClick(note: Note) {
+        val action = NotesListFragmentDirections.actionNotesListFragmentToNoteDetailFragment(
+            note.title!!,
+            note.description!!,
+            note.imgUrl!!,
+            note.createdAt.toString(),
+            note.favorite!!
+        )
+        findNavController().navigate(action)
+    }
+
+//    override fun onImageNoteClick(image: String) {
+//        val action = NotesListFragmentDirections.actionNotesListFragmentToImageNoteDetailFragment()
+//        findNavController().navigate(action)
+//    }
 }

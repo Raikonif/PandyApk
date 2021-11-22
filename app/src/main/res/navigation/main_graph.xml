@@ -43,6 +43,12 @@
         <action
             android:id="@+id/action_notesListFragment_to_cameraFragment"
             app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_notesListFragment_to_noteDetailFragment"
+            app:destination="@id/noteDetailFragment" />
+        <action
+            android:id="@+id/action_notesListFragment_to_imageNoteDetailFragment"
+            app:destination="@id/imageNoteDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
@@ -53,4 +59,28 @@
             android:id="@+id/action_cameraFragment_to_notesListFragment"
             app:destination="@id/notesListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.dai.pandyapk.ui.notes.NoteDetailFragment"
+        android:label="fragment_note_detail"
+        tools:layout="@layout/fragment_note_detail" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument android:name="description"
+            app:argType="string" />
+        <argument android:name="imgUrl"
+            app:argType="string" />
+        <argument
+            android:name="createdAt"
+            app:argType="string" />
+        <argument
+            android:name="favorite"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageNoteDetailFragment"
+        android:name="com.dai.pandyapk.ui.notes.ImageNoteDetailFragment"
+        android:label="fragment_image_note_detail"
+        tools:layout="@layout/fragment_image_note_detail" />
 </navigation>

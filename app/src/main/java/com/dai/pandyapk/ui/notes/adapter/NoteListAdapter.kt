@@ -2,37 +2,47 @@ package com.dai.pandyapk.ui.notes.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dai.pandyapk.core.BaseViewHolder
 import com.dai.pandyapk.databinding.ItemNoteBinding
 import com.dai.pandyapk.data.model.Note
 
-class NoteListAdapter(private val noteList: List<Note>):
-    RecyclerView.Adapter<BaseViewHolder<*>>(){
+class NoteListAdapter(
+    private val noteList: List<Note>,
+    private val itemClickListener: OnNoteClickListener
+) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
-//    private lateinit var context: Context
+    interface OnNoteClickListener {
+        fun onNoteClick(note: Note)
+//        fun onImageNoteClick(image: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-        val itemBiding = ItemNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return NoteListViewHolder(itemBiding, parent.context)
-//        context = parent.context
-//        val view = LayoutInflater.from(context).inflate(R.layout.item_note, parent, false)
-
-//        return ViewHolder(view)
+        val itemBinding = ItemNoteBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent, false
+        )
+        val holder = NoteListViewHolder(itemBinding, parent.context)
+// click de cada elemento
+        itemBinding.root.setOnClickListener {
+            val position = holder.bindingAdapterPosition.takeIf {
+                    it != DiffUtil.DiffResult.NO_POSITION
+                } ?: return@setOnClickListener
+            itemClickListener.onNoteClick(noteList[position])
+//            itemClickListener.onImageNoteClick(noteList[position].imgUrl!!)
+        }
+        return holder
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
-//        val note = getItem(position)
-        when(holder){
-         is NoteListViewHolder -> holder.bind(noteList[position])
+        when (holder) {
+            is NoteListViewHolder -> holder.bind(noteList[position])
         }
-//        val note: Note = noteList[position]
-
-//        holder.bind(note)
-//        val note : Note = noteList[position]
-
 
     }
 
@@ -41,13 +51,9 @@ class NoteListAdapter(private val noteList: List<Note>):
 
     private inner class NoteListViewHolder(
         val binding: ItemNoteBinding,
-        val context: Context
+        val context: Context,
     ) : BaseViewHolder<Note>(binding.root) {
-
-//        val binding = ItemNoteBinding.bind(view)
-
         override fun bind(item: Note) {
-            with(itemView) {
                 binding.tvNoteTitle.text = item.title
                 binding.tvNoteDesc.text = item.description
                 binding.tvDatetime.text = item.createdAt.toString()
@@ -57,17 +63,5 @@ class NoteListAdapter(private val noteList: List<Note>):
                     .centerCrop()
                     .into(binding.imgPhoto)
             }
-
-
         }
-
-
-//interface in the same class
-//    interface OnClickListener {
-//        fun onClick(note: Note)
-//    }
-
-
-    }
-
 }
