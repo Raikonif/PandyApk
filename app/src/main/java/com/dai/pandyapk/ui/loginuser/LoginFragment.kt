@@ -63,7 +63,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             .requestEmail()
             .build()
 
-        googleSignInClient = GoogleSignIn.getClient(context!!, gso)
+        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 //        val signInIntent: Intent = client.signInIntent
         signIn(googleSignInClient)
 //        activity?.startActivityForResult(signInIntent, 1)

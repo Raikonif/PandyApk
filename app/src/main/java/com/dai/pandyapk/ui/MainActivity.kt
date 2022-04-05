@@ -2,6 +2,7 @@ package com.dai.pandyapk.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.dai.pandyapk.R
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Thread.sleep(1500)
+//        Log.d( "TIEMPO","$sleep")
+
 //            binding = ActivityMainBinding.inflate(layoutInflater)
 
 //
