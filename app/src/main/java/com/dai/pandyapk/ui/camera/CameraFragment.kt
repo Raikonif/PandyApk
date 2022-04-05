@@ -59,9 +59,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
                     binding.etTitle.text.toString().trim(),
                     false,
                     Timestamp.now()
-                )
-
-                    .observe(viewLifecycleOwner, { result ->
+                ).observe(viewLifecycleOwner, { result ->
                         when (result) {
                             is Result.Loading -> {
                                 Toast.makeText(

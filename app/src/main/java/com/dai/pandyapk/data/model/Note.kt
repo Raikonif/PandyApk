@@ -1,13 +1,15 @@
 package com.dai.pandyapk.data.model
 
 import com.google.firebase.Timestamp
+import com.google.firebase.firestore.Exclude
 import java.util.*
 
 data class Note (
     val title: String? = "",
     val description: String? = "",
     val imgUrl: String? = "",
-    val favorite: Boolean? = false,
+    @Exclude @JvmField
+    var favorite: Boolean? = false,
     val createdAt: Timestamp? = Timestamp.now()
 )
 //

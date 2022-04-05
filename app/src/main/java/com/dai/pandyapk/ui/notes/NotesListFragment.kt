@@ -86,11 +86,32 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list),
             note.title!!,
             note.description!!,
             note.imgUrl!!,
-            note.createdAt.toString(),
+            note.createdAt?.toDate().toString(),
             note.favorite!!
         )
         findNavController().navigate(action)
+
     }
+
+    override fun onImageNoteClick(note: Note, image: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onFavoriteButtonClick(note: Note, favorite: Boolean?) {
+        viewModel.registerFavoriteButtonState(note.createdAt?.toDate().toString(), favorite!!).observe(viewLifecycleOwner){ result ->
+            when (result) {
+                is Resource.Loading -> { }
+
+                is Resource.Success -> { }
+
+                is Resource.Failure -> {
+                    binding.pbNoteList.visibility = View.VISIBLE
+                    activity?.toast("Ocurrio un Error ${result.exception}")
+                }
+            }
+        }
+    }
+
 // TODO: AÑADIR FUNCION DE TOCAR EN LA IMAGEN PARA AGRANDAR
 //    override fun onImageNoteClick(image: String) {
 //        val action = NotesListFragmentDirections.actionNotesListFragmentToImageNoteDetailFragment()

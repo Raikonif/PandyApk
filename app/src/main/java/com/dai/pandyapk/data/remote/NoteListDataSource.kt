@@ -3,6 +3,7 @@ package com.dai.pandyapk.data.remote
 import com.dai.pandyapk.core.Resource
 import com.dai.pandyapk.data.model.Note
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
@@ -28,5 +29,12 @@ class NoteListDataSource() {
 
         }
         return Resource.Success(noteListData)
+    }
+
+    fun registerFavoriteButtonState(noteId: String, favorite: Boolean) {
+
+        val uid = Firebase.auth.currentUser?.uid
+        val postRef = FirebaseFirestore.getInstance().collection("notes").document(noteId)
+        //TODO: logica para cambiar el estado del boton favorite
     }
 }

@@ -26,8 +26,8 @@
 
     <LinearLayout
         android:id="@+id/linear_info_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
         android:layout_margin="5dp"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@id/img_photo"
@@ -37,7 +37,7 @@
             android:id="@+id/tv_note_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nota Name"
+            tools:text="Nota Name"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
             android:maxLines="2" />
@@ -56,8 +56,10 @@
             android:layout_height="wrap_content"
             tools:text="dd/mm/yy hh:mm"
             android:textColor="@color/colorAccent"
+            android:textSize="11sp"
             />
     </LinearLayout>
+
     <ImageView
         android:id="@+id/img_favorite"
         android:layout_width="wrap_content"
