@@ -65,7 +65,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 //        val signInIntent: Intent = client.signInIntent
-        signIn(googleSignInClient)
+                signIn(googleSignInClient)
 //        activity?.startActivityForResult(signInIntent, 1)
         // [END config_signin]
     }
@@ -98,7 +98,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun firebaseAuthWithGoogle(idToken: String ) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
-            .addOnCompleteListener() { task ->
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val user = auth.currentUser

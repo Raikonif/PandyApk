@@ -30,14 +30,23 @@ class CameraDataResource {
         imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
 
         val downloadUrl = imageRef.putBytes(baos.toByteArray())
-            .await().storage.downloadUrl.
-            await().toString()
+            .await().storage.downloadUrl.await().toString()
+
         user?.let {
-            it.displayName?.let {displayName ->
+            it.displayName?.let { displayName ->
                 Firebase.firestore.collection("notes")
                     .document("${user.uid}")
                     .collection("pathology")
-                    .add(Note(title = title, description = description, imgUrl = downloadUrl, favorite = favorite, createdAt = createdAt))
+                    .add(
+                        Note
+                            (
+                            title = title,
+                            description = description,
+                            imgUrl = downloadUrl,
+                            favorite = favorite,
+                            createdAt = createdAt
+                        )
+                    )
             }
         }
     }

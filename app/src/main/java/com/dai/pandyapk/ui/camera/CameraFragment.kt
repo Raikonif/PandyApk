@@ -4,6 +4,7 @@ import android.app.Activity.RESULT_OK
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.fragment.app.Fragment
@@ -30,8 +31,11 @@ import com.google.firebase.Timestamp
 class CameraFragment : Fragment(R.layout.fragment_camera) {
 
     private val REQUEST_IMAGE_CAPTURE = 1
+    private val REQUEST_IMAGE_GALLERY = 2
+    private var RESULT_LOAD_IMAGE = 0
     private lateinit var binding: FragmentCameraBinding
     private var bitmap: Bitmap? = null
+    private var selectedPhotoUri: Uri? = null
     private val viewModel by viewModels<CameraViewModel> {
         CameraViewModelFactory(
             CameraRepoImpl(
@@ -44,52 +48,91 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCameraBinding.bind(view)
 
+        binding.imgAddPhoto.setOnClickListener { selectPhoto()
+        RESULT_LOAD_IMAGE = selectPhoto()
+        }
+        binding.imgAddImage.setOnClickListener { takePhoto()
+        RESULT_LOAD_IMAGE = takePhoto()
+        }
+
+        binding.btnUploadPhoto.setOnClickListener {
+
+            afterTakePhoto()
+//            when(RESULT_LOAD_IMAGE){
+//                1 -> afterTakePhoto()
+//                2 -> TODO()
+//                else -> Toast.makeText(requireContext(), "Please select a photo", Toast.LENGTH_SHORT).show()
+//            }
+
+        }
+    }
+
+    private fun afterTakePhoto(){
+        bitmap?.let {
+            viewModel.uploadPhoto(
+                it,
+                binding.etPhotoDescription.text.toString().trim(),
+                binding.etTitle.text.toString().trim(),
+                false,
+                Timestamp.now()
+            ).observe(viewLifecycleOwner) { result ->
+                when (result) {
+                    is Result.Loading -> {
+                        Toast.makeText(
+                            requireContext(),
+                            "Uploading Photo",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    is Result.Success -> {
+                        findNavController().navigate(R.id.action_cameraFragment_to_notesListFragment)
+                    }
+                    is Result.Failure -> {
+                        Toast.makeText(
+                            requireContext(),
+                            "Error ${result.exception}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
+    }
+    private fun afterSelectPhoto(){
+
+    }
+
+    private fun takePhoto():Int {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         try {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
         } catch (e: ActivityNotFoundException) {
             activity?.toast("no se encontro ninguna app para abrir la camara")
         }
+        return REQUEST_IMAGE_CAPTURE
 
-        binding.btnUploadPhoto.setOnClickListener {
-            bitmap?.let {
-                viewModel.uploadPhoto(
-                    it,
-                    binding.etPhotoDescription.text.toString().trim(),
-                    binding.etTitle.text.toString().trim(),
-                    false,
-                    Timestamp.now()
-                ).observe(viewLifecycleOwner, { result ->
-                        when (result) {
-                            is Result.Loading -> {
-                                Toast.makeText(
-                                    requireContext(),
-                                    "Uploading Photo",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                            is Result.Success -> {
-                                findNavController().navigate(R.id.action_cameraFragment_to_notesListFragment)
-                            }
-                            is Result.Failure -> {
-                                Toast.makeText(
-                                    requireContext(),
-                                    "Error ${result.exception}",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    })
-            }
-        }
+    }
+
+    private fun selectPhoto():Int {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_IMAGE_GALLERY)
+        return REQUEST_IMAGE_GALLERY
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
-            binding.imgAddPhoto.setImageBitmap(imageBitmap)
+            binding.ivPhotoSelected.setImageBitmap(imageBitmap)
             bitmap = imageBitmap
+
+        } else if (requestCode == REQUEST_IMAGE_GALLERY && resultCode == RESULT_OK) {
+            selectedPhotoUri = data?.data
+            bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, selectedPhotoUri)
+            binding.ivPhotoSelected.setImageBitmap(bitmap)
+//            binding.ivPhotoSelected.setImageURI(selectedPhotoUri)
         }
     }
 }
