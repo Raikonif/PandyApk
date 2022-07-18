@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".ui.notes.NotesListFragment">
+    tools:context=".ui.notes.NotesListFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update NOTES fragment layout -->
 

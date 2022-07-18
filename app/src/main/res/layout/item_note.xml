@@ -1,72 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="15dp">
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="5dp">
 
-    <ProgressBar
-        android:id="@+id/pb_item_note"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:progressBarStyleSmall"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/img_photo"
-        app:layout_constraintBottom_toBottomOf="@id/img_photo"/>
+        android:background="@color/colorPrimary"
+        android:paddingBottom="5dp">
 
-    <com.github.chrisbanes.photoview.PhotoView
-        android:id="@+id/img_photo"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_margin="5dp"
-        android:src="@drawable/icon_poke2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <LinearLayout
-        android:id="@+id/linear_info_note"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
-        android:layout_margin="5dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@id/img_photo"
-        app:layout_constraintTop_toTopOf="@id/img_photo">
-
-        <TextView
-            android:id="@+id/tv_note_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Nota Name"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold"
-            android:maxLines="2" />
-
-        <TextView
-            android:id="@+id/tv_note_desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/primary_light"
-            android:maxLines="2"
-            tools:text="Description of the note, Description of the note, Description of the note" />
-
-        <TextView
-            android:id="@+id/tv_datetime"
+        <ProgressBar
+            android:id="@+id/pb_item_note"
+            style="?android:progressBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="dd/mm/yy hh:mm"
-            android:textColor="@color/colorAccent"
-            android:textSize="11sp"
-            />
-    </LinearLayout>
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/img_photo"
+            app:layout_constraintStart_toStartOf="@+id/img_photo" />
 
-    <ImageView
-        android:id="@+id/img_favorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_favorite_border_24"
-        app:layout_constraintStart_toEndOf="@id/linear_info_note"
-        app:layout_constraintTop_toTopOf="@+id/linear_info_note"
-        />
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/img_photo"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/icon_poke2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/linear_info_note"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/img_photo"
+            app:layout_constraintTop_toTopOf="@id/img_photo">
+
+            <TextView
+                android:id="@+id/tv_note_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                tools:text="Nota Name" />
+
+            <TextView
+                android:id="@+id/tv_note_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:textColor="@color/primary_light"
+                tools:text="Description of the note, Description of the note, Description of the note" />
+
+            <TextView
+                android:id="@+id/tv_datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textSize="11sp"
+                tools:text="dd/mm/yy hh:mm" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_favorite_border_24"
+            app:layout_constraintStart_toEndOf="@id/linear_info_note"
+            app:layout_constraintTop_toTopOf="@+id/linear_info_note" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

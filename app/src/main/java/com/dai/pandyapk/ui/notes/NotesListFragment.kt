@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -80,7 +81,6 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list),
     }
 
 
-
     override fun onNoteClick(note: Note) {
         val action = NotesListFragmentDirections.actionNotesListFragmentToNoteDetailFragment(
             note.title!!,
@@ -93,23 +93,26 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list),
 
     }
 
-    override fun onImageNoteClick(note: Note, image: String) {
-        TODO("Not yet implemented")
+    override fun onImageNoteClick(img: String) {
+        Toast.makeText(requireContext(), "Imagen", Toast.LENGTH_SHORT).show()
+        val action = NotesListFragmentDirections.actionNotesListFragmentToFullScreenFragment(img)
+        findNavController().navigate(action)
     }
 
     override fun onFavoriteButtonClick(note: Note, favorite: Boolean?) {
-        viewModel.registerFavoriteButtonState(note.createdAt?.toDate().toString(), favorite!!).observe(viewLifecycleOwner){ result ->
-            when (result) {
-                is Resource.Loading -> { }
+        viewModel.registerFavoriteButtonState(note.createdAt?.toDate().toString(), favorite!!)
+            .observe(viewLifecycleOwner) { result ->
+                when (result) {
+                    is Resource.Loading -> {}
 
-                is Resource.Success -> { }
+                    is Resource.Success -> {}
 
-                is Resource.Failure -> {
-                    binding.pbNoteList.visibility = View.VISIBLE
-                    activity?.toast("Ocurrio un Error ${result.exception}")
+                    is Resource.Failure -> {
+                        binding.pbNoteList.visibility = View.VISIBLE
+                        activity?.toast("Ocurrio un Error ${result.exception}")
+                    }
                 }
             }
-        }
     }
 
 // TODO: AÑADIR FUNCION DE TOCAR EN LA IMAGEN PARA AGRANDAR

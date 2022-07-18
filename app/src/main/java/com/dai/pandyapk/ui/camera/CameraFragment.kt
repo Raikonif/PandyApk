@@ -48,11 +48,11 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCameraBinding.bind(view)
 
-        binding.imgAddPhoto.setOnClickListener { selectPhoto()
-        RESULT_LOAD_IMAGE = selectPhoto()
+        binding.imgSelectPhoto.setOnClickListener {
+            selectPhoto()
         }
-        binding.imgAddImage.setOnClickListener { takePhoto()
-        RESULT_LOAD_IMAGE = takePhoto()
+        binding.imgTakePhoto.setOnClickListener {
+            takePhoto()
         }
 
         binding.btnUploadPhoto.setOnClickListener {
@@ -67,7 +67,18 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         }
     }
 
-    private fun afterTakePhoto(){
+
+    fun changeStateViewVisibility() {
+        if (bitmap != null) {
+            binding.imgSelectPhoto.visibility = View.GONE
+            binding.imgTakePhoto.visibility = View.GONE
+            binding.ivPhotoSelected.visibility = View.VISIBLE
+        }
+        else{
+            Toast.makeText(requireContext(), "Please select a photo to Continue", Toast.LENGTH_SHORT).show()
+        }
+    }
+    private fun afterTakePhoto() {
         bitmap?.let {
             viewModel.uploadPhoto(
                 it,
@@ -98,26 +109,33 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
             }
         }
     }
-    private fun afterSelectPhoto(){
+
+    private fun afterSelectPhoto() {
 
     }
 
-    private fun takePhoto():Int {
+    fun resultImage(request: Int): Int {
+        RESULT_LOAD_IMAGE = request
+        return RESULT_LOAD_IMAGE
+    }
+
+    private fun takePhoto() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         try {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
         } catch (e: ActivityNotFoundException) {
             activity?.toast("no se encontro ninguna app para abrir la camara")
         }
-        return REQUEST_IMAGE_CAPTURE
+        resultImage(REQUEST_IMAGE_CAPTURE)
 
     }
 
-    private fun selectPhoto():Int {
+    private fun selectPhoto() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         intent.type = "image/*"
         startActivityForResult(intent, REQUEST_IMAGE_GALLERY)
-        return REQUEST_IMAGE_GALLERY
+        resultImage(REQUEST_IMAGE_GALLERY)
+//        changeStateViewVisibility()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -130,10 +148,14 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
 
         } else if (requestCode == REQUEST_IMAGE_GALLERY && resultCode == RESULT_OK) {
             selectedPhotoUri = data?.data
-            bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, selectedPhotoUri)
+            bitmap = MediaStore.Images.Media.getBitmap(
+                requireActivity().contentResolver,
+                selectedPhotoUri
+            )
             binding.ivPhotoSelected.setImageBitmap(bitmap)
 //            binding.ivPhotoSelected.setImageURI(selectedPhotoUri)
         }
+        changeStateViewVisibility()
     }
 }
 

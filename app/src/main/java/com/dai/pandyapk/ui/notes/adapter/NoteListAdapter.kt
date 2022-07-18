@@ -1,6 +1,7 @@
 package com.dai.pandyapk.ui.notes.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -11,6 +12,8 @@ import com.dai.pandyapk.R
 import com.dai.pandyapk.core.BaseViewHolder
 import com.dai.pandyapk.databinding.ItemNoteBinding
 import com.dai.pandyapk.data.model.Note
+import com.dai.pandyapk.ui.notes.FullScreenFragment
+import com.dai.pandyapk.ui.notes.NotesListFragmentDirections
 import com.google.firebase.Timestamp
 import javax.annotation.meta.When
 
@@ -27,7 +30,7 @@ class NoteListAdapter(
 
     interface OnNoteClickListener {
         fun onNoteClick(note: Note)
-        fun onImageNoteClick(note: Note, image: String)
+        fun onImageNoteClick(img: String)
         fun onFavoriteButtonClick(note: Note, favorite: Boolean?)
     }
 
@@ -43,8 +46,13 @@ class NoteListAdapter(
                 it != DiffUtil.DiffResult.NO_POSITION
             } ?: return@setOnClickListener
             itemClickListener.onNoteClick(noteList[position])
-//            itemClickListener.onImageNoteClick(noteList[position].imgUrl!!)
+        }
 
+        itemBinding.imgPhoto.setOnClickListener {
+            val position = holder.bindingAdapterPosition.takeIf {
+                it != DiffUtil.DiffResult.NO_POSITION
+            } ?: return@setOnClickListener
+            itemClickListener.onImageNoteClick(noteList[position].imgUrl!!)
         }
         return holder
     }
@@ -80,6 +88,14 @@ class NoteListAdapter(
                 .centerCrop()
                 .into(binding.imgPhoto)
         }
+
+//        private fun imageFullScreen(item: String?){
+//            binding.imgPhoto.setOnClickListener {
+//                val intent = Intent (context, FullScreenFragment::class.java)
+//                val action = NotesListFragmentDirections.actionNotesListFragmentToFullScreenFragment(item.)
+//                context.startActivity(intent)
+//            }
+//        }
 
         private fun changeFavoriteState(item: Note) {
             binding.imgFavorite.setOnClickListener {
