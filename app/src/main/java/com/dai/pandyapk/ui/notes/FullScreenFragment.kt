@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ScaleGestureDetector
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.dai.pandyapk.R
@@ -28,17 +29,26 @@ class FullScreenFragment : Fragment(R.layout.fragment_full_screen) {
         Glide.with(requireContext())
             .load(args.imgUrl)
             .into(binding.ivPhotoFullscreen)
-            binding.ivPhotoFullscreen.setOnClickListener {
-                if (count == 0) {
-                    requireActivity().requestedOrientation =
-                        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-//                requireActivity().onBackPressed()
-                    count++
-                } else {
-                    requireActivity().requestedOrientation =
-                        ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                    count = 0
-                }
+
+        binding.ivPhotoFullscreen.setOnClickListener {
+            when(count){
+                0 -> landscape()
+                1 -> portrait()
             }
+        }
+    }
+
+    private fun landscape() {
+        requireActivity().requestedOrientation =
+            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        Toast.makeText(requireContext(), "Modo Horizontal", Toast.LENGTH_SHORT).show()
+        count = 1
+    }
+
+    private fun portrait() {
+        requireActivity().requestedOrientation =
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        Toast.makeText(requireContext(), "Modo Vertical", Toast.LENGTH_SHORT).show()
+        count = 0
     }
 }
