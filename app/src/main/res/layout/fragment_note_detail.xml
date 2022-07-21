@@ -17,29 +17,30 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:orientation="vertical">
-
-            <com.github.chrisbanes.photoview.PhotoView
-                android:id="@+id/img_photo_detail"
-                android:layout_width="350dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center|top"
-                tools:src="@drawable/icon_poke" />
-
             <TextView
                 android:id="@+id/tv_datetime_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary_light"
+                android:layout_gravity="center"
                 android:textStyle="bold"
                 tools:text="dd/mm/yyyy hh:mm:ssss" />
 
+            <ImageView
+                android:id="@+id/img_photo_detail"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center|top"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/icon_poke" />
 
             <TextView
                 android:id="@+id/tv_title_detail"

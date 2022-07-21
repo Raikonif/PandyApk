@@ -21,11 +21,10 @@ class FullScreenFragment : Fragment(R.layout.fragment_full_screen) {
     private lateinit var binding: FragmentFullScreenBinding
     private val args by navArgs<FullScreenFragmentArgs>()
     private var count = 0
-    private var scaleDetector: ScaleGestureDetector? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFullScreenBinding.bind(view)
-
         Glide.with(requireContext())
             .load(args.imgUrl)
             .into(binding.ivPhotoFullscreen)

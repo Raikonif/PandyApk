@@ -83,6 +83,9 @@
         <action
             android:id="@+id/action_noteDetailFragment_to_imageNoteDetailFragment"
             app:destination="@id/imageNoteDetailFragment" />
+        <action
+            android:id="@+id/action_noteDetailFragment_to_fullScreenFragment"
+            app:destination="@id/fullScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/imageNoteDetailFragment"
