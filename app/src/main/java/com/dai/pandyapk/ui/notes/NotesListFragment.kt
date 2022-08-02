@@ -78,6 +78,13 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list),
             val action = NotesListFragmentDirections.actionNotesListFragmentToCameraFragment()
             findNavController().navigate(action)
         }
+
+        binding.btnLogOut.setOnClickListener {
+            Firebase.auth.signOut()
+            val action = NotesListFragmentDirections.actionNotesListFragmentToLoginFragment()
+            findNavController().navigate(action)
+            Toast.makeText(requireActivity(), "Sesión Cerrada", Toast.LENGTH_SHORT).show()
+        }
     }
 
 

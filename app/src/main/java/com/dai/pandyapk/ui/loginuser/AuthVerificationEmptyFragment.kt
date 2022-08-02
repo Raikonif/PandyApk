@@ -15,17 +15,17 @@ class AuthVerificationEmptyFragment : Fragment(R.layout.fragment_auth_verificati
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (mAuth.currentUser == null)
-        {
-            val actionToLogin = AuthVerificationEmptyFragmentDirections
-                .actionAuthVerificationEmptyFragmentToLoginFragment()
-            findNavController().navigate(actionToLogin)
-        }
-        else
+        if (mAuth.currentUser != null)
         {
             val actionToDashB = AuthVerificationEmptyFragmentDirections
                 .actionAuthVerificationEmptyFragmentToDashboardFragment()
             findNavController().navigate(actionToDashB)
+        }
+        else
+        {
+            val actionToLogin = AuthVerificationEmptyFragmentDirections
+                .actionAuthVerificationEmptyFragmentToLoginFragment()
+            findNavController().navigate(actionToLogin)
         }
 //        activity?.finish()
     }

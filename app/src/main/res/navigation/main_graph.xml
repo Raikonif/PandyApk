@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_notesListFragment_to_fullScreenFragment"
             app:destination="@id/fullScreenFragment" />
+        <action
+            android:id="@+id/action_notesListFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
