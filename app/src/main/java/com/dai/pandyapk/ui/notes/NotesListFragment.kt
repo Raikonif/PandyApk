@@ -81,6 +81,7 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list),
 
         binding.btnLogOut.setOnClickListener {
             Firebase.auth.signOut()
+            requireActivity().finish()
             val action = NotesListFragmentDirections.actionNotesListFragmentToLoginFragment()
             findNavController().navigate(action)
             Toast.makeText(requireActivity(), "Sesión Cerrada", Toast.LENGTH_SHORT).show()
