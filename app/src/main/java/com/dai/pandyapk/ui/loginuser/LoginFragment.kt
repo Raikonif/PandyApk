@@ -120,13 +120,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
     // [END auth_with_google]
 
-//    override fun onStart() {
-//        super.onStart()
-//        // Check if user is signed in (non-null) and update UI accordingly.
-////        val currentUser = auth.currentUser
-////        updateUI(currentUser)
-//    }
-
+    override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser!=null){
+            val action = LoginFragmentDirections.actionLoginFragmentToDashboardFragment()
+            findNavController().navigate(action)
+        }
+    }
 
 
 }

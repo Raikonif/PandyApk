@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1055530752122-3u9v6tg7ba1fqgjg1oc7t9r177uikp09.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dai.pandyapk",
+            "certificate_hash": "83cf2735a1ef1a67f360a16405141033f5256e89"
+          }
+        },
+        {
           "client_id": "1055530752122-hb2okctunkoh9dapsrpk1cu7gilmvojr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
