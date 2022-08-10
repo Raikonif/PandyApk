@@ -33,29 +33,38 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
-//        firebaseUIAuth()
-        binding.btnGoogleSignIn.setOnClickListener{ googleSignInConfig()}
 
+//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//            .requestIdToken(getString(R.string.default_web_client_id))
+//            .requestEmail()
+//            .build()
+
+//        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
+//        firebaseUIAuth()
+//        googleSignInConfig()
+        binding.btnGoogleSignIn.setOnClickListener { googleSignInConfig() }
     }
 
-    private fun firebaseUIAuth(){
+    private fun firebaseUIAuth() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.GoogleBuilder().build()
         )
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             val response = IdpResponse.fromResultIntent(it.data)
 
-            if (it.resultCode == RESULT_OK){
+            if (it.resultCode == RESULT_OK) {
                 val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) activity?.toast("Welcome")
             }
-        }.launch(AuthUI.getInstance()
-            .createSignInIntentBuilder()
-            .setAvailableProviders(providers)
-            .build())
+        }.launch(
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(providers)
+                .build()
+        )
     }
 
-    private fun googleSignInConfig(){
+    private fun googleSignInConfig() {
         // [START config_signin]
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -64,9 +73,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-//        val signInIntent: Intent = client.signInIntent
-                signIn(googleSignInClient)
-//        activity?.startActivityForResult(signInIntent, 1)
+        signIn(googleSignInClient)
         // [END config_signin]
     }
 
@@ -85,9 +92,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
-
                 firebaseAuthWithGoogle(account.idToken!!)
-
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
             }
@@ -95,14 +100,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     // [START auth_with_google]
-    private fun firebaseAuthWithGoogle(idToken: String ) {
+    private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    val user = auth.currentUser
-                    updateUI(user)
 
                     val action = LoginFragmentDirections.actionLoginFragmentToDashboardFragment()
                     findNavController().navigate(action)
@@ -110,23 +113,20 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     activity?.toast("Bienvenid@")
                 } else {
                     // If sign in fails, display a message to the user.
-                    updateUI(null)
+//                    updateUI(null)
                     activity?.toast("Error al Iniciar Sesion")
                 }
             }
     }
     // [END auth_with_google]
 
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        // Check if user is signed in (non-null) and update UI accordingly.
+////        val currentUser = auth.currentUser
+////        updateUI(currentUser)
+//    }
 
-    private fun updateUI(user: FirebaseUser?) {
-
-    }
 
 
 }

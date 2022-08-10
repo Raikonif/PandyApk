@@ -78,6 +78,11 @@ class NotesListFragment : Fragment(R.layout.fragment_notes_list),
             val action = NotesListFragmentDirections.actionNotesListFragmentToCameraFragment()
             findNavController().navigate(action)
         }
+        binding.btnSignOut.setOnClickListener{
+            Firebase.auth.signOut()
+            val action = NotesListFragmentDirections.actionNotesListFragmentToLoginFragment()
+            findNavController().navigate(action)
+        }
     }
 
 

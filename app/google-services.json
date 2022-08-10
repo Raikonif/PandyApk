@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1055530752122-hb2okctunkoh9dapsrpk1cu7gilmvojr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dai.pandyapk",
+            "certificate_hash": "37b3acac29489ec08e8cff073354b7b3fc9f47ea"
+          }
+        },
+        {
           "client_id": "1055530752122-hl2nnhfaj8fdqlfi49l2v7ibd641hl83.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -36,7 +44,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1055530752122-phrej4ac30a9f8nm35rv8hk07nlav2gv.apps.googleusercontent.com",
+              "client_id": "1055530752122-j28jct0ds30rvlrqs1dpashv0hjffitg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

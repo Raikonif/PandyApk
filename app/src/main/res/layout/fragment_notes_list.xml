@@ -75,6 +75,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_signOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_float_new_note"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/button_image_selected"
+        />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_float_new_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
