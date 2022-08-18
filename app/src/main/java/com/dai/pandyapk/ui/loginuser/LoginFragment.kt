@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
 import com.dai.pandyapk.R
@@ -34,35 +35,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
 
-//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//            .requestIdToken(getString(R.string.default_web_client_id))
-//            .requestEmail()
-//            .build()
-
-//        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-//        firebaseUIAuth()
-//        googleSignInConfig()
         binding.btnGoogleSignIn.setOnClickListener { googleSignInConfig() }
     }
 
-    private fun firebaseUIAuth() {
-        val providers = arrayListOf(
-            AuthUI.IdpConfig.GoogleBuilder().build()
-        )
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            val response = IdpResponse.fromResultIntent(it.data)
 
-            if (it.resultCode == RESULT_OK) {
-                val user = FirebaseAuth.getInstance().currentUser
-                if (user != null) activity?.toast("Welcome")
-            }
-        }.launch(
-            AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build()
-        )
-    }
 
     private fun googleSignInConfig() {
         // [START config_signin]
@@ -71,7 +47,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
         signIn(googleSignInClient)
         // [END config_signin]
@@ -106,17 +81,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-
                     val action = LoginFragmentDirections.actionLoginFragmentToDashboardFragment()
                     findNavController().navigate(action)
-
                     activity?.toast("Bienvenid@")
                 } else {
                     // If sign in fails, display a message to the user.
 //                    updateUI(null)
                     activity?.toast("Error al Iniciar Sesion")
                 }
-            }
+         }
     }
     // [END auth_with_google]
 
@@ -125,6 +98,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser!=null){
+            Toast.makeText(requireContext(),"Bienvenido $currentUser",Toast.LENGTH_LONG).show()
             val action = LoginFragmentDirections.actionLoginFragmentToDashboardFragment()
             findNavController().navigate(action)
         }

@@ -32,6 +32,7 @@
                 android:textColor="@color/primary_light"
                 android:layout_gravity="center"
                 android:textStyle="bold"
+                android:layout_marginBottom="20dp"
                 tools:text="dd/mm/yyyy hh:mm:ssss" />
 
             <ImageView
@@ -46,8 +47,9 @@
                 android:id="@+id/tv_title_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Titulo"
+                android:hint="Insert Title"
                 android:textColor="@color/primary_light"
+                android:layout_marginBottom="20dp"
                 android:textSize="25sp" />
 
             <TextView
@@ -55,19 +57,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="8"
-                android:text="Descripción"
+                android:hint="Insert Description of the note"
                 android:textColor="@color/primary_light"
                 android:textSize="25sp"
                 android:textStyle="italic" />
-
-            <!--    <com.ortiz.touchview.TouchImageView-->
-            <!--        android:id="@+id/img_photo_detail2"-->
-            <!--        android:layout_width="match_parent"-->
-            <!--        android:layout_height="300dp"-->
-            <!--        tools:src="@drawable/icon_poke"-->
-            <!--        android:padding="10dp"-->
-            <!--        />-->
-
         </LinearLayout>
 
 
