@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/icons_text"
     tools:context=".ui.notes.NoteDetailFragment">
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
         android:fillViewport="true"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +28,7 @@
                 android:id="@+id/tv_datetime_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primary_light"
+                android:textColor="@color/primary_text"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:layout_marginBottom="20dp"
@@ -41,6 +40,7 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center|top"
                 android:scaleType="centerCrop"
+                android:layout_marginBottom="20dp"
                 tools:src="@drawable/icon_poke" />
 
             <TextView
@@ -48,7 +48,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Insert Title"
-                android:textColor="@color/primary_light"
+                android:textColorHint="@color/primary_text"
+                android:textColor="@color/primary_text"
                 android:layout_marginBottom="20dp"
                 android:textSize="25sp" />
 
@@ -58,8 +59,10 @@
                 android:layout_height="wrap_content"
                 android:maxLines="8"
                 android:hint="Insert Description of the note"
-                android:textColor="@color/primary_light"
-                android:textSize="25sp"
+                android:textColorHint="@color/primary_text"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:layout_margin="10dp"
                 android:textStyle="italic" />
         </LinearLayout>
 

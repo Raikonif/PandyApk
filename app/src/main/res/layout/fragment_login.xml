@@ -36,15 +36,12 @@
         android:id="@+id/btn_google_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Google Sign In"
-        android:stateListAnimator="@null"
-        android:textColor="@color/primary_light"
-        android:background="@color/colorAccent"
-        android:layout_marginStart="80dp"
         android:layout_gravity="bottom"
+        android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"
-        />
-
+        android:background="@color/colorAccent"
+        android:text="Google Sign In/Sign Up"
+        android:textColor="@color/primary_light" />
 
 
 </LinearLayout>
