@@ -25,7 +25,7 @@
             android:layout_gravity="center|top"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/tv_datetime_detail"
+                android:id="@+id/tv_datetime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary_text"
@@ -47,10 +47,11 @@
                 android:id="@+id/tv_title_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Insert Title"
+                android:hint="Title"
                 android:textColorHint="@color/primary_text"
                 android:textColor="@color/primary_text"
                 android:layout_marginBottom="20dp"
+                android:layout_margin="10dp"
                 android:textSize="25sp" />
 
             <TextView
@@ -58,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="8"
-                android:hint="Insert Description of the note"
+                android:hint="Description of the note"
                 android:textColorHint="@color/primary_text"
                 android:textColor="@color/primary_text"
                 android:textSize="15sp"

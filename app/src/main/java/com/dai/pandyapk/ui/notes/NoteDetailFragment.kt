@@ -23,12 +23,12 @@ class NoteDetailFragment : Fragment(R.layout.fragment_note_detail) {
         binding.tvTitleDetail.text = args.title
         binding.tvDescriptionDetail.text = args.description
         Glide.with(requireContext()).load(args.imgUrl).centerCrop().into(touchImage)
-        binding.tvDatetimeDetail.text = args.createdAt
+        binding.tvDatetime.text = args.createdAt
         binding.imgPhotoDetail.setOnClickListener {
             findNavController().navigate(NoteDetailFragmentDirections.actionNoteDetailFragmentToFullScreenFragment(args.imgUrl))
         }
         binding.btnFloatEditNote.setOnClickListener {
-            val action = NoteDetailFragmentDirections.actionNoteDetailFragmentToNoteEditFragment()
+            val action = NoteDetailFragmentDirections.actionNoteDetailFragmentToNoteEditFragment(args.title, args.description, args.imgUrl, args.createdAt, args.favorite)
             findNavController().navigate(action)
         }
     }
