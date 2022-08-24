@@ -55,15 +55,8 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
             takePhoto()
         }
 
-        binding.btnUploadPhoto.setOnClickListener {
-
+        binding.btnUploadNote.setOnClickListener {
             afterTakePhoto()
-//            when(RESULT_LOAD_IMAGE){
-//                1 -> afterTakePhoto()
-//                2 -> TODO()
-//                else -> Toast.makeText(requireContext(), "Please select a photo", Toast.LENGTH_SHORT).show()
-//            }
-
         }
     }
 

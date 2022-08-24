@@ -19,7 +19,7 @@ class NoteDetailFragment : Fragment(R.layout.fragment_note_detail) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentNoteDetailBinding.bind(view)
         val touchImage = binding.imgPhotoDetail
-
+        //TODO: get note ID from args
         binding.tvTitleDetail.text = args.title
         binding.tvDescriptionDetail.text = args.description
         Glide.with(requireContext()).load(args.imgUrl).centerCrop().into(touchImage)
